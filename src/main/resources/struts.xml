@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.i18n.reload" value="false"/>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.custom.i18n.resources" value="globalMessages"/>
+    <!--登录-->
+    <package name="default" extends="struts-default,json-default" namespace="/">
+        <action name="login" class="com.shinowit.actions.LoginAction" method="OperLogin">
+            <result type="json">
+                <param name="excludeProperties">
+                    .*hibernateLazyInitializer,.*handler.*auRoleInfoByRoleId,.*baLogInfosByOperId,.*meInStockInfosByOperId,.*meOrderInfosByOperId,.*meOutStockInfosByOperId
+                </param>
+            </result>
+            <result name="ok">/login.html</result>
+        </action>
+        <action name="jump" class="com.shinowit.actions.JumpAction" method="jump">
+            <result name="success">/WEB-INF/index.html</result>
+            <result name="ok">/login.html</result>
+        </action>
+        <action name="validOper" class="com.shinowit.actions.CurrentOperAction" method="valid">
+            <result type="json">
+                <param name="includeProperties">list.*</param>
+                <param name="excludeProperties">
+                    .*hibernateLazyInitializer,.*handler,.*meOutStockInfosByOperId,.*meInStockInfosByOperId,.*meOrderInfosByOperId,.*baLogInfosByOperId,.*auAuthorizationsByRoleId
+                </param>
+            </result>
+            <result name="ok">/login.html</result>
+        </action>
+    </package>
+    <!-->供货商信息表 <-->
+    <package name="defaultww" extends="struts-default,json-default" namespace="/">
+        <action name="ghs" class="com.shinowit.actions.SupplierAction" method="query">
+            <result type="json" name="ok">
+                <param name="includeProperties">mes.*</param>
+                <param name="excludeProperties">.*meInStockDetailsInfosByBillCode,.*auOperInfoByOperId</param>
+            </result>
+        </action>
+        <action name="ghsinsert" class="com.shinowit.actions.SupplierZsgcAction" method="insert">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="ghsdelete" class="com.shinowit.actions.SupplierZsgcAction" method="delete">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="ghsupdate" class="com.shinowit.actions.SupplierZsgcAction" method="update">
+            <result type="json" name="ok"></result>
+        </action>
+    </package>
+    <!-->会员表 在前台做 <-->
+    <package name="default1" extends="struts-default,json-default" namespace="/">
+        <action name="member" class="com.shinowit.actions.MemberAction" method="member">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="memberinsert" class="com.shinowit.actions.MemberZsgcAction" method="insert">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="memberdelete" class="com.shinowit.actions.MemberZsgcAction" method="delete ">
+            <result type="json" name="ok"></result>
+        </action>
+    </package>
+    <!-->订单详情入库明细表(过滤不彻底。。。) <-->
+    <package name="default2" extends="struts-default,json-default" namespace="/">
+        <action name="instockselect" class="com.shinowit.actions.MerchandiseAction" method="query">
+            <result type="json" name="success">
+                <!--<param name="includeProperties">mes.*</param>-->
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*meInStockDetailsInfosByBillCode
+                    <!--,.*meMerchandiseCInfoByMerchandiseCid-->
+                    <!--,.*meProStatusInfoByProStatusId-->
+                    <!--,.*meUnitInfoByUnitId-->
+                    <!--,.*meOrderDetailsInfosByMerchandiseId-->
+                    <!--,.*meOutStockDetailsInfosByMerchandiseId-->
+                    ,.*meStockInfosByMerchandiseId
+                    ,.*baLogInfosByOperId
+                    ,.*meInStockInfosByOperId
+                    ,.*meOrderInfosByOperId
+                    ,.*meOutStockInfosByOperId
+                    ,.*pwd
+                    ,.*address
+                    ,.*linkTel
+                    ,.*qq
+                    ,.*email
+                    ,.*mobile
+                    ,.*sortId
+                    ,.*state
+                </param>
+            </result>
+        </action>
+        <action name="instockinsert" class="com.shinowit.actions.InstockZsgcAction" method="insert">
+            <result type="json" name="ok"></result>
+        </action>
+    </package>
+    <!-->出库详情入库明细表(过滤不彻底。。。) <-->
+    <package name="chukuqq" extends="struts-default,json-default" namespace="/">
+        <action name="outstockselect" class="com.shinowit.actions.ChukudanAction" method="query">
+            <result type="json" name="ok">
+                <!--<param name="includeProperties">mes.*</param>-->
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*meOutStockDetailsInfosByOutBillCode
+                    ,.*meOrderInfosByOutBillCode
+
+                    ,.*meInStockInfosByOperId
+                    ,.*meOrderInfosByOperId
+                    ,.*baLogInfosByOperId
+                   ,.*auRoleInfoByRoleId
+                    ,.*pwd
+                    ,.*address
+                    ,.*linkTel
+                    ,.*qq
+                    ,.*email
+                    ,.*mobile
+                    ,.*sortId
+                    ,.*state
+                </param>
+            </result>
+        </action>
+    </package>
+    <package name="chukuww" extends="struts-default,json-default" namespace="/">
+        <action name="insertchuku" class="com.shinowit.actions.Chukudan3Action" method="insert">
+            <result type="json" name="ok">
+            </result>
+        </action>
+
+    </package>
+    <!-->商品分类表 <-->
+    <package name="default3" extends="struts-default,json-default" namespace="/">
+        <action name="fenlei" class="com.shinowit.actions.MerchandisecAction" method="query">
+            <result type="json" name="success">
+                <param name="excludeProperties">
+                    .*hibernateLazyInitializer,.*handler,.*meMerchandiseInfosByMerchandiseCid
+                </param>
+            </result>
+        </action>
+        <action name="merchandisecinsert" class="com.shinowit.actions.MerchandisecZsgcAction" method="insert">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="merchandisecdelete" class="com.shinowit.actions.MerchandisecZsgcAction" method="delete">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="merchandisecupdate" class="com.shinowit.actions.MerchandisecZsgcAction" method="update">
+            <result type="json" name="ok"></result>
+        </action>
+    </package>
+    <!-->商品促销状态 <-->
+    <package name="default4" extends="struts-default,json-default" namespace="/">
+        <action name="status" class="com.shinowit.actions.ProstatusAction" method="prostatus">
+            <result type="json" name="ok">
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler,.*meMerchandiseInfosByProStatusId
+                </param>
+            </result>
+        </action>
+        <action name="prostatusinsert" class="com.shinowit.actions.ProstatusZsgcAction" method="insert">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="prostatusdelete" class="com.shinowit.actions.ProstatusZsgcAction" method="delete">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="prostatusupdate" class="com.shinowit.actions.ProstatusZsgcAction" method="update">
+            <result type="json" name="ok"></result>
+        </action>
+    </package>
+    <!-->商品字典表<-->
+    <package name="default5" extends="struts-default,json-default" namespace="/">
+        <action name="unit" class="com.shinowit.actions.UnitAction" method="unit">
+            <result type="json" name="ok">
+                <param name="excludeProperties">
+                    .*hibernateLazyInitializer,.*handler,.*meOrderDetailsInfosByUnitId,.*meMerchandiseInfosByUnitId
+                </param>
+            </result>
+        </action>
+        <action name="unitinsert" class="com.shinowit.actions.UnitZsgcAction" method="insert">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="unitdelete" class="com.shinowit.actions.UnitZsgcAction" method="delete">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="unitdeletes" class="com.shinowit.actions.UnitZsgcAction" method="deletes">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="unitupdate" class="com.shinowit.actions.UnitZsgcAction" method="update">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="queryCode" class="com.shinowit.actions.UnitAction" method="query">
+            <result type="json" >
+                <param name="excludeProperties">
+                    mes.*meOrderDetailsInfosByUnitId,mes.*meMerchandiseInfosByUnitId
+                </param>
+            </result>
+        </action>
+
+
+
+    </package>
+    <!-->配送商管理<-->
+    <package name="default6" extends="struts-default,json-default" namespace="/">
+        <action name="delivery" class="com.shinowit.actions.DeliveryAction" method="query">
+            <result type="json" name="ok">
+                <!--<param name="includeProperties">mes.*</param>-->
+                <param name="excludeProperties">.*hibernateLazy,.*handler
+                    ,.*meOrderInfosByDeliveryId
+                </param>
+
+            </result>
+        </action>
+        <action name="deliveryinsert" class="com.shinowit.actions.DeliveryZsgcAction" method="insert">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="deliverydelete" class="com.shinowit.actions.DeliveryZsgcAction" method="delete">
+            <result type="json" name="ok"></result>
+        </action>
+        <action name="deliveryupdate" class="com.shinowit.actions.DeliveryZsgcAction" method="update">
+            <result type="json" name="ok"></result>
+        </action>
+    </package>
+    <!-->操作员的combobox <-->
+    <package name="combobox" extends="struts-default,json-default" namespace="/">
+        <action name="opernameselect" class="com.shinowit.actions.OpernameAction" method="select">
+            <result type="json" name="ok">
+                <param name="includeProperties">mes.*</param>
+                <param name="excludeProperties">
+                    .*hibernateLazyInitializer,.*handler,.*auRoleInfoByRoleId,.*baLogInfosByOperId,.*meInStockInfosByOperId,.*meOrderInfosByOperId,.*meOutStockInfosByOperId
+                </param>
+            </result>
+        </action>
+
+    </package>
+    <!-- 商品信息表的listall-->
+    <package name="combobox1" extends="struts-default,json-default" namespace="/">
+        <action name="merchanddiseselect" class="com.shinowit.actions.MerchandiselistallAction" method="select">
+            <result type="json" name="ok">
+                <param name="includeProperties">mes.*</param>
+                <param name="excludeProperties">
+                    .*hibernateLazyInitializer,.*handler,.*meInStockDetailsInfosByMerchandiseId,.*meMerchandiseCInfoByMerchandiseCid,.*meProStatusInfoByProStatusId,.*meUnitInfoByUnitId,.*meOrderDetailsInfosByMerchandiseId,.*meOutStockDetailsInfosByMerchandiseId,.*meStockInfosByMerchandiseId
+                </param>
+            </result>
+        </action>
+
+    </package>
+    <!-- 角色信息表的listall-->
+    <package name="combobox2" extends="struts-default,json-default" namespace="/">
+        <action name="selectroleinfo" class="com.shinowit.actions.RolecomAction" method="select">
+            <result type="json" name="ok">
+                <param name="includeProperties">mes.*</param>
+                <param name="excludeProperties">
+                    .*hibernateLazyInitializer,.*handler,.*auAuthorizationsByRoleId,.*auOperInfosByRoleId
+                </param>
+            </result>
+        </action>
+
+    </package>
+    <!-->入库的插入删除更新 <-->
+    <package name="aa" extends="struts-default,json-default" namespace="/">
+        <action name="insertaa" class="com.shinowit.actions.RukudanAction" method="insert">
+            <result name="ok" type="json">
+            </result>
+        </action>
+        <action name="deteleaa" class="com.shinowit.actions.RukudanAction" method="detele">
+            <result name="ok" type="json">
+            </result>
+        </action>
+        <action name="updateaa" class="com.shinowit.actions.RukudanAction" method="update">
+            <result name="ok" type="json">
+            </result>
+        </action>
+    </package>
+    <!-->出库的插入删除更新 <-->
+    <package name="aa1" extends="struts-default,json-default" namespace="/">
+
+        <action name="deteleaa1" class="com.shinowit.actions.Chukudan3Action" method="detele">
+            <result name="ok" type="json">
+            </result>
+        </action>
+        <action name="updateaa1" class="com.shinowit.actions.Chukudan3Action" method="update">
+            <result name="ok" type="json">
+            </result>
+        </action>
+    </package>
+    <!-->订单详情的查询<-->
+    <package name="bb" extends="struts-default,json-default" namespace="/">
+        <action name="select1" class="com.shinowit.actions.MerchandiseInfoAction" method="select1">
+            <result name="ok" type="json">
+                <!--<param name="includeProperties">mes.*</param>-->
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler,.*auMenuInfoBymenuId,.*meInStockDetailsInfosByBillCode,.*auOperInfoByOperId,.*baSupplierInfoBySupplierId,.*meInStockDetailsInfosByMerchandiseId,.*meMerchandiseCInfoByMerchandiseCid,.*meProStatusInfoByProStatusId,.*meUnitInfoByUnitId,.*meUnitInfoByUnitId,.*meOrderDetailsInfosByMerchandiseId,.*meOutStockDetailsInfosByMerchandiseId,.*meStockInfosByMerchandiseId
+                </param>
+            </result>
+        </action>
+        <action name="detele1" class="com.shinowit.actions.MerchandiseInfoAction" method="detele1">
+            <result name="ok" type="json">
+
+            </result>
+        </action>
+    </package>
+    <!-->出库详情的查询<-->
+    <package name="chuku1" extends="struts-default,json-default" namespace="/">
+        <action name="select2" class="com.shinowit.actions.Chukudan2Action" method="select1">
+            <result name="ok" type="json">
+                <!--<param name="includeProperties">mes.*</param>-->
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*meInStockDetailsInfosByMerchandiseId
+                    ,.*meMerchandiseCInfoByMerchandiseCid
+                    ,.*meProStatusInfoByProStatusId
+                    ,.*meUnitInfoByUnitId
+                    ,.*meOrderDetailsInfosByMerchandiseId
+                    ,.*meStockInfosByMerchandiseId
+                    ,.*meOrderInfosByOutBillCode
+                    ,.*auOperInfoByOperId
+                    ,.*meOutStockDetailsInfosByMerchandiseId
+                </param>
+            </result>
+        </action>
+        <!--<action name="detele1" class="com.shinowit.actions.MerchandiseInfoAction" method="detele1">-->
+        <!--<result name="ok" type="json">-->
+        <!--</result>-->
+        <!--</action>-->
+    </package>
+    <!--库存分页-->
+    <package name="cc" extends="struts-default,json-default" namespace="/">
+        <action name="kucun" class="com.shinowit.actions.KucunAction" method="query">
+            <result name="ok" type="json">
+                <param name="includeProperties">mes.*</param>
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*meInStockDetailsInfosByMerchandiseId
+                    ,.*meProStatusInfoByProStatusId
+                    ,.*meUnitInfoByUnitId
+                    ,.*meOrderDetailsInfosByMerchandiseId
+                    ,.*meOutStockDetailsInfosByMerchandiseId
+                </param>
+            </result>
+        </action>
+        <action name="kucunselect" class="com.shinowit.actions.Chuku4Action" method="kucunselect">
+            <result name="ok" type="json">
+                <param name="includeProperties">mes.*</param>
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*meInStockDetailsInfosByMerchandiseId
+                    ,.*meOrderDetailsInfosByMerchandiseId
+                    ,.*meOrderDetailsInfosByUnitId
+                    ,.*meOutStockDetailsInfosByMerchandiseId
+                </param>
+            </result>
+        </action>
+    </package>
+    <!-- 商品信息表的listall-->
+    <package name="dd" extends="struts-default,json-default" namespace="/">
+        <action name="zhanshi" class="com.shinowit.actions.ZhanshiAction" method="query">
+            <result name="ok" type="json">
+                <param name="includeProperties">mes.*</param>
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*meInStockDetailsInfosByMerchandiseId
+                    ,.*meOrderDetailsInfosByMerchandiseId
+                    ,.*meOutStockDetailsInfosByMerchandiseId
+                    ,.*meStockInfosByMerchandiseId
+                    ,.*meOrderDetailsInfosByUnitId
+                </param>
+            </result>
+        </action>
+    </package>
+    <package name="wewe" extends="struts-default,json-default" namespace="/">
+        <action name="caidan" class="com.shinowit.actions.CaidanAction" method="select22">
+            <result name="ok" type="json">
+                <param name="includeProperties">mes.*</param>
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*auAUthorizationByMenuId
+                    ,.*baLogInfosByMenuId
+                    ,.*id
+                    ,.*menuId
+                </param>
+            </result>
+        </action>
+        <action name="caidan2" class="com.shinowit.actions.CaidanAction" method="select23">
+            <result name="ok" type="json">
+                <param name="includeProperties">mes1.*</param>
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*baLogInfosByMenuId
+                    ,.*auOperInfosByRoleId
+                    ,.*id
+                    ,.*menuId
+                </param>
+            </result>
+        </action>
+    </package>
+    <!--用户的展示-->
+    <package name="weweewwwewe" extends="struts-default,json-default" namespace="/">
+        <action name="userzhanshi" class="com.shinowit.actions.QuanxianAction" method="userzhanshi">
+            <result name="ok" type="json">
+                <!--<param name="includeProperties">mes.*</param>-->
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*meInStockInfosByOperId
+                    ,.*meOrderInfosByOperId
+                    ,.*meOutStockInfosByOperId
+                    ,.*auAuthorizationsByRoleId
+                    ,.*baLogInfosByOperId
+                </param>
+            </result>
+        </action>
+    </package>
+    <!--角色信息展示-->
+    <package name="zhanshirole" extends="struts-default,json-default" namespace="/">
+        <action name="rolezhanshi" class="com.shinowit.actions.RoleAction" method="rolezhanshi">
+            <result name="ok" type="json">
+
+                <param name="excludeProperties">.*hibernateLazyInitializer,.*handler
+                    ,.*auAuthorizationsByRoleId
+                    ,.*auOperInfosByRoleId
+                </param>
+            </result>
+        </action>
+    </package>
+    <!--操作员的-->
+    <package name="user22" extends="struts-default,json-default" namespace="/">
+        <action name="userinsert" class="com.shinowit.actions.UserzsgAction" method="insert">
+            <result name="ok" type="json">
+
+            </result>
+        </action>
+        <action name="userdelete" class="com.shinowit.actions.UserzsgAction" method="delete">
+            <result name="ok" type="json">
+
+            </result>
+        </action>
+        <action name="userupdate" class="com.shinowit.actions.UserzsgAction" method="update">
+            <result name="ok" type="json">
+            </result>
+        </action>
+    </package>
+
+    <package name="userwe2" extends="struts-default,json-default" namespace="/">
+        <action name="caidan23" class="com.shinowit.actions.MenuInfoAction" method="execute">
+            <result name="success" type="json">
+            </result>
+        </action>
+        <action name="caidan45" class="com.shinowit.actions.MenuInfoAction" method="execute1">
+            <result name="success" type="json">
+            </result>
+        </action>
+
+    </package>
+    <!--菜单的tree-->
+    <package name="tree1" extends="struts-default,json-default" namespace="/">
+        <action name="tree" class="com.shinowit.actions.TestRoleTreeAction" method="getTree">
+            <result name="success" type="json">
+            </result>
+        </action>
+
+    </package>
+    <!--角色的新建-->
+    <package name="roletest" extends="struts-default,json-default" namespace="/">
+        <action name="aothorizatinInsert" class="com.shinowit.actions.RolezsgAction"
+                method="authorizationInsertExecute">
+            <result name="ok" type="json">
+            </result>
+        </action>
+        <action name="roledetele" class="com.shinowit.actions.RolezsgAction"
+                method="delete">
+            <result name="ok" type="json">
+            </result>
+        </action>
+        <action name="roleupdate" class="com.shinowit.actions.RolezsgAction"
+                method="update">
+            <result name="ok" type="json">
+            </result>
+        </action>
+
+    </package>
+</struts>

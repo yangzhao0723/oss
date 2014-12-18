@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2629430551">
+    <data-source source="LOCAL" name="SQL Server - oss@localhost" uuid="edf305ff-18ed-4571-bb13-6035a157d6bc">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://localhost:1433;databaseName=oss</jdbc-url>
+      <user-name>sa</user-name>
+      <user-password>dfd9dfc2dfc3dfc4dfc5dfdd</user-password>
+      <schema-pattern>oss.*</schema-pattern>
+      <default-schemas>oss.*</default-schemas>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="MySQL - oss@localhost" uuid="918082b0-e014-48b5-8291-9f0e21ca5ca4">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/oss</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfd9dfc2dfc3dfc4dfc5dfdd</user-password>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Oracle - orcl@localhost" uuid="a7a9634f-9690-4125-940c-fc4ee6e3ff24">
+      <driver-ref>oracle</driver-ref>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@//localhost:1521/orcl</jdbc-url>
+      <user-name>shinow</user-name>
+      <user-password>dfd9dfc2dfc3dfc4dfc5dfdd</user-password>
+      <schema-pattern>*.SHINOW</schema-pattern>
+      <default-schemas>*.SHINOW</default-schemas>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

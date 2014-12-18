@@ -1,0 +1,205 @@
+{"count": 7, "limit": 0, "merchandise1": {
+    "id": null,
+    "meInStockInfoByBillCode": {
+        "billCode": "001",
+        "handler1": null,
+        "id": null,
+        "inTime": null,
+        "inType": null,
+        "remark": null,
+        "totalMoney": null
+    },
+    "meMerchandiseInfoByMerchandiseId": null,
+    "num": null,
+    "price": null
+}, "mes": [
+    {
+        "id": 1,
+        "meInStockInfoByBillCode": {
+            "billCode": "001",
+            "handler1": "1",
+            "id": 49,
+            "inTime": "2014-12-02T00:00:00",
+            "inType": 1,
+            "remark": "11",
+            "totalMoney": 100001.0000
+        },
+        "meMerchandiseInfoByMerchandiseId": {
+            "clickCount": 0,
+            "describe": null,
+            "id": 1,
+            "merchandiseAb": "gz",
+            "merchandiseId": "00001",
+            "merchandiseName": "瓜子",
+            "picPath": null,
+            "price": 5.0000,
+            "remark": null,
+            "saleStatus": true,
+            "spec": null
+        },
+        "num": 2,
+        "price": 1.0000
+    },
+    {
+        "id": 100212,
+        "meInStockInfoByBillCode": {
+            "billCode": "001",
+            "handler1": "1",
+            "id": 49,
+            "inTime": "2014-12-02T00:00:00",
+            "inType": 1,
+            "remark": "11",
+            "totalMoney": 100001.0000
+        },
+        "meMerchandiseInfoByMerchandiseId": {
+            "clickCount": 0,
+            "describe": null,
+            "id": 1,
+            "merchandiseAb": "gz",
+            "merchandiseId": "00001",
+            "merchandiseName": "瓜子",
+            "picPath": null,
+            "price": 5.0000,
+            "remark": null,
+            "saleStatus": true,
+            "spec": null
+        },
+        "num": 1,
+        "price": 1.0000
+    },
+    {
+        "id": 100213,
+        "meInStockInfoByBillCode": {
+            "billCode": "001",
+            "handler1": "1",
+            "id": 49,
+            "inTime": "2014-12-02T00:00:00",
+            "inType": 1,
+            "remark": "11",
+            "totalMoney": 100001.0000
+        },
+        "meMerchandiseInfoByMerchandiseId": {
+            "clickCount": 0,
+            "describe": null,
+            "id": 1,
+            "merchandiseAb": "gz",
+            "merchandiseId": "00001",
+            "merchandiseName": "瓜子",
+            "picPath": null,
+            "price": 5.0000,
+            "remark": null,
+            "saleStatus": true,
+            "spec": null
+        },
+        "num": 1,
+        "price": 1.0000
+    },
+    {
+        "id": 100214,
+        "meInStockInfoByBillCode": {
+            "billCode": "001",
+            "handler1": "1",
+            "id": 49,
+            "inTime": "2014-12-02T00:00:00",
+            "inType": 1,
+            "remark": "11",
+            "totalMoney": 100001.0000
+        },
+        "meMerchandiseInfoByMerchandiseId": {
+            "clickCount": 0,
+            "describe": null,
+            "id": 1,
+            "merchandiseAb": "gz",
+            "merchandiseId": "00001",
+            "merchandiseName": "瓜子",
+            "picPath": null,
+            "price": 5.0000,
+            "remark": null,
+            "saleStatus": true,
+            "spec": null
+        },
+        "num": 1,
+        "price": 1.0000
+    },
+    {
+        "id": 100215,
+        "meInStockInfoByBillCode": {
+            "billCode": "001",
+            "handler1": "1",
+            "id": 49,
+            "inTime": "2014-12-02T00:00:00",
+            "inType": 1,
+            "remark": "11",
+            "totalMoney": 100001.0000
+        },
+        "meMerchandiseInfoByMerchandiseId": {
+            "clickCount": 0,
+            "describe": null,
+            "id": 1,
+            "merchandiseAb": "gz",
+            "merchandiseId": "00001",
+            "merchandiseName": "瓜子",
+            "picPath": null,
+            "price": 5.0000,
+            "remark": null,
+            "saleStatus": true,
+            "spec": null
+        },
+        "num": 1,
+        "price": 1.0000
+    },
+    {
+        "id": 100216,
+        "meInStockInfoByBillCode": {
+            "billCode": "001",
+            "handler1": "1",
+            "id": 49,
+            "inTime": "2014-12-02T00:00:00",
+            "inType": 1,
+            "remark": "11",
+            "totalMoney": 100001.0000
+        },
+        "meMerchandiseInfoByMerchandiseId": {
+            "clickCount": 0,
+            "describe": null,
+            "id": 1,
+            "merchandiseAb": "gz",
+            "merchandiseId": "00001",
+            "merchandiseName": "瓜子",
+            "picPath": null,
+            "price": 5.0000,
+            "remark": null,
+            "saleStatus": true,
+            "spec": null
+        },
+        "num": 1,
+        "price": 1.0000
+    },
+    {
+        "id": 100217,
+        "meInStockInfoByBillCode": {
+            "billCode": "001",
+            "handler1": "1",
+            "id": 49,
+            "inTime": "2014-12-02T00:00:00",
+            "inType": 1,
+            "remark": "11",
+            "totalMoney": 100001.0000
+        },
+        "meMerchandiseInfoByMerchandiseId": {
+            "clickCount": 0,
+            "describe": null,
+            "id": 1,
+            "merchandiseAb": "gz",
+            "merchandiseId": "00001",
+            "merchandiseName": "瓜子",
+            "picPath": null,
+            "price": 5.0000,
+            "remark": null,
+            "saleStatus": true,
+            "spec": null
+        },
+        "num": 1,
+        "price": 1.0000
+    }
+], "message": null, "page": 0, "panduan": false, "success": false}
